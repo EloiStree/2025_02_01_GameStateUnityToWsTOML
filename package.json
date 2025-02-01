@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.elab.gamewstoml",                              
+  "displayName": "Game State Unity To Ws TOML",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "This code allows to export the game state and the player IID team position in a dirty uncompress way for learning. The aim is not to be perfect like for IMMO 16k SNAM but to be fast and easy to use in small game project to learn code.",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/2025_02_01_GameStateUnityToWsTOML.git",
+"footprint":"",
+"revision":""},     
+  "category": "Script"                   
+} 
