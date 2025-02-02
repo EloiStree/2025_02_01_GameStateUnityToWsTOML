@@ -40,7 +40,7 @@ public class GameUdpMono_ExportListOfPlayerIndexTeamTransform : MonoBehaviour
         int lineSize = 4*11 ;
         int byteArraySize = players.Count * lineSize;
 
-        if(m_playerCSVAsBytes.Length!=byteArraySize)
+        if(m_playerCSVAsBytes==null || m_playerCSVAsBytes.Length!=byteArraySize)
             m_playerCSVAsBytes = new byte[byteArraySize];
         for (int i = 0; i < players.Count; i++)
         {
