@@ -16,13 +16,10 @@ public class ListOfPlayerInGameIndexTeamTransform{
 
     public void AddIfNotExistingFromPlayerIndex(int playerIndex, out PlayerInGameIndexTeamTransform player){
 
-        for (int i = 0; i < m_player.Count; i++)
+        GetPlayerByGivenIndex(playerIndex, out player);
+        if (player != null)
         {
-            if (m_player[i].m_playerIndex == playerIndex)
-            {
-                player = m_player[i];
-                return;
-            }
+            return;
         }
         PlayerInGameIndexTeamTransform newPlayer = new PlayerInGameIndexTeamTransform();
         newPlayer.m_playerIndex = playerIndex;
@@ -45,7 +42,37 @@ public class ListOfPlayerInGameIndexTeamTransform{
         player = null;
     }
 
-    public void SetTeamIndexFromPlayerIndex(int playerIndex, ushort teamIndex)
+    public void AddIfNotExistingFromLobbyIndex(int lobbyIndex, out PlayerInGameIndexTeamTransform player)
+    {
+        GetPlayerByLobbyIndex(lobbyIndex, out player);
+        if (player != null)
+        {
+            return;
+        }
+        PlayerInGameIndexTeamTransform newPlayer = new PlayerInGameIndexTeamTransform();
+        newPlayer.m_playerIndex = 0;
+        newPlayer.m_playerLobbyIndex = lobbyIndex;
+        m_player.Add(newPlayer);
+        player = newPlayer;
+        m_playerDict.Add(lobbyIndex, newPlayer);
+
+        
+    }
+
+    public void GetPlayerByGivenLobbyIndex(int lobbyIndex, out PlayerInGameIndexTeamTransform player)
+    {
+        for (int i = 0; i < m_player.Count; i++)
+        {
+            if (m_player[i].m_playerLobbyIndex == lobbyIndex)
+            {
+                player = m_player[i];
+                return;
+            }
+        }
+        player = null;
+    }
+
+    public void SetTeamIndexFromPlayerIndex(int playerIndex, int teamIndex)
     {
         GetPlayerByGivenIndex(playerIndex, out PlayerInGameIndexTeamTransform player);
         player.m_teamIndex = teamIndex;
@@ -93,4 +120,24 @@ public class ListOfPlayerInGameIndexTeamTransform{
             m_player[i].m_playerLobbyIndex=i;
         }
     }
+
+    public void SetFlatDegreeAngleXZFromPlayerIndex(int playerIndex, int flatAngle)
+    {
+        GetPlayerByGivenIndex(playerIndex, out PlayerInGameIndexTeamTransform player);
+        player.m_flatXZDegreeAngle = flatAngle;
+    }
+
+    public void GetPlayerByLobbyIndex(int index, out PlayerInGameIndexTeamTransform player)
+    {
+        for (int i = 0; i < m_player.Count; i++)
+        {
+            if (m_player[i].m_playerLobbyIndex == index)
+            {
+                player = m_player[i];
+                return;
+            }
+        }
+        player = null;
+    }
+
 }

@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 /// <summary>
 /// Represents a abstract layer of a IID player in a game.
+/// Player with int lead to 44 bytes of data per player as bytes and 193 bytes as text.
+/// Making 1400  players as bytes and around 320 player max as text.
 /// </summary>
 
 [System.Serializable]
@@ -17,6 +19,7 @@ public class PlayerInGameIndexTeamTransform
     public int m_playerLobbyIndex;
     /// <summary>
     /// Team index in the IID
+    /// (Could be a IID player index in future so I used int)
     /// </summary>
     public int m_teamIndex;
 
