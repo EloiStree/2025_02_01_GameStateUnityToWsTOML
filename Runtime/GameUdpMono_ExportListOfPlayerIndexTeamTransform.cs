@@ -9,6 +9,7 @@ public class GameUdpMono_ExportListOfPlayerIndexTeamTransform : MonoBehaviour
     public GameUdpMono_PlayerInGameToExport m_registerRef;
 
     public UnityEvent<string> m_onTextUdpPlayerPositionChanged;
+    public UnityEvent<byte[]> m_onTextUtf8ByteUdpPlayerPositionChanged;
     public UnityEvent<byte[]> m_onBytesUdpPlayerPositionChanged;
 
     [TextArea]
@@ -90,6 +91,7 @@ public class GameUdpMono_ExportListOfPlayerIndexTeamTransform : MonoBehaviour
         m_byteToTextRatio = (float)m_udpSizeText/m_udpSizeBytes ;
 
         m_onTextUdpPlayerPositionChanged.Invoke(m_playerCSVAsLines);
+        m_onTextUtf8ByteUdpPlayerPositionChanged.Invoke(Encoding.UTF8.GetBytes(m_playerCSVAsLines));
         m_onBytesUdpPlayerPositionChanged.Invoke(m_playerCSVAsBytes);
 
     }
