@@ -41,10 +41,12 @@ public class GameUdpMono_TeamTransformToRegister : MonoBehaviour
         {
             return;
         }
+
         for(int i=0; i< m_listOfLobbyIndexToPlayer.Count; i++)
         {
             if(m_listOfLobbyIndexToPlayer[i].m_linkedPlayer == player)
             {
+                m_listOfLobbyIndexToPlayer[i].m_playerIndex = index;
                 m_listOfLobbyIndexToPlayer[i].m_player.m_playerIndex = index;
                 break;
             }
