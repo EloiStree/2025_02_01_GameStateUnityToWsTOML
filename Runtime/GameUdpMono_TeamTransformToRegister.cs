@@ -27,6 +27,7 @@ public class GameUdpMono_TeamTransformToRegister : MonoBehaviour
     public List<LobbyIndexToPlayer> m_listOfLobbyIndexToPlayer = new List<LobbyIndexToPlayer>();
 
     public UnityEvent m_requestRefreshIndexFromTransform;
+    public UnityEvent m_onWasUpdated;
 
     /// <summary>
     ///  This abstract tool can't know what player index is assigned to what player.
@@ -151,6 +152,7 @@ public class GameUdpMono_TeamTransformToRegister : MonoBehaviour
 
             
         }   
+        m_onWasUpdated.Invoke();
     }
 
 
